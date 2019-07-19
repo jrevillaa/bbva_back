@@ -1,3 +1,8 @@
 dbinstance-postgresql-grupo8.clg84vqsqscl.us-east-1.rds.amazonaws.com/bdgrupo8_postgresql
 username: bbvagrupo8
 password: grupo8password
+========
+mysql:
+dbinstancegrupo8.clg84vqsqscl.us-east-1.rds.amazonaws.com
+username: bbvagrupo8
+password: grupo8password
