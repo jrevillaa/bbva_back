@@ -1,17 +1,24 @@
 package com.bbva.pagorecibo.controllers;
 
-import com.bbva.pagorecibo.entity.Receipt;
-import com.bbva.pagorecibo.payload.UserConsult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bbva.pagorecibo.entity.Receipt;
+import com.bbva.pagorecibo.repository.ReceiptRepository;
+
+@RestController
 public class RecieptController {
-    
-    @GetMapping(name = "/api/dashboard")
-	public Receipt dashboard(@RequestBody UserConsult userConsult) {
-		
-            userConsult.getId();
-                    
-            return null;
+
+	@Autowired
+	private ReceiptRepository receiptRepository;
+
+	@GetMapping(value = "/api/dashboard/{idUsuario}")
+	public List<Receipt> dashboard(@PathVariable String idUsuario) {
+		return receiptRepository.findPendientesByIdUsuario(Long.valueOf(idUsuario));
 	}
+
 }
