@@ -1,5 +1,6 @@
 package com.bbva.pagorecibo.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -13,9 +14,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "RECEIPT")
-public class Receipt {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Receipt implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "receipt_id")
@@ -31,7 +38,8 @@ public class Receipt {
 
 	@Column(name = "duedate")
 	private LocalDate fechaCaducidad;
-	
+
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User usuario;
