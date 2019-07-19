@@ -1,5 +1,9 @@
 package com.bbva.pagorecibo.controllers;
 
+
+import com.bbva.pagorecibo.entity.Receipt;
+import com.bbva.pagorecibo.payload.UserConsult;
+import com.bbva.pagorecibo.repository.ReceiptRepository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +19,14 @@ import com.bbva.pagorecibo.repository.ReceiptRepository;
 @CrossOrigin
 public class RecieptController {
 
+
 	@Autowired
 	private ReceiptRepository receiptRepository;
 
 	@GetMapping(value = "/api/dashboard/{idUsuario}")
 	public List<Receipt> dashboard(@PathVariable String idUsuario) {
 		return receiptRepository.findPendientesByIdUsuario(Long.valueOf(idUsuario));
+
 	}
 
 }
