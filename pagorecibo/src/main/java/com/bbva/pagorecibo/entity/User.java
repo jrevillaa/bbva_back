@@ -7,8 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "USER")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
 	@Id
@@ -28,6 +31,9 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "dni")
+	private String dni;
+	
 	public Long getId() {
 		return id;
 	}
@@ -66,6 +72,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 }

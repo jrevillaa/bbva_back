@@ -2,15 +2,15 @@ package com.bbva.pagorecibo.payload;
 
 public class Usuario {
 
-	private String email;
+	private String dni;
 	private String password;
 
-	public String getEmail() {
-		return email;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getPassword() {

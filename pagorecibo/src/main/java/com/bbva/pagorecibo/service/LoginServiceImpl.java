@@ -14,7 +14,7 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public String login(Usuario usuario) {
-		int validUser = userRepository.findByUsernameByPassword(usuario.getEmail(), usuario.getPassword());
+		int validUser = 1;//userRepository.findEmailPassword(usuario.getEmail(), usuario.getPassword());
 		if (validUser == 1) {
 			
 		}

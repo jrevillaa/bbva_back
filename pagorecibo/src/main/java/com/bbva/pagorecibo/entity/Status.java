@@ -7,8 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "STATUS")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Status {
 
 	@Id
