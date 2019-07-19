@@ -9,6 +9,9 @@ import com.bbva.pagorecibo.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	@Query("SELECT u FROM User u WHERE u.dni = ?1")
+	public User findByDni(String dni);
+
 	@Query("SELECT u FROM User u WHERE u.dni = ?1 and u.password = ?2")
 	public User findByDniByPassword(String dni, String password);
 

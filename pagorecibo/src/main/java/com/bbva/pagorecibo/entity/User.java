@@ -8,9 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.bbva.pagorecibo.payload.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "USER")
+@JsonIgnoreProperties(value= {"password"}, allowSetters=true)
 public class User {
 
 	@Id
