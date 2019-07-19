@@ -8,11 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.bbva.pagorecibo.payload.Usuario;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
 @Table(name = "USER")
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
 	@Id
@@ -89,6 +87,7 @@ public class User {
 		user.setLastName(usuario.getApellidos());
 		user.setEmail(usuario.getEmail());
 		user.setDni(usuario.getDni());
+		user.setPassword(usuario.getPassword());
 		return user;
 	}
 

@@ -17,26 +17,12 @@ public class LoginController {
 
 	@PostMapping(value = "/api/login")
 	public User login(@RequestBody Usuario usuario) {
-		if ("12345678".equals(usuario.getDni()) && "jose".equals(usuario.getPassword())) {
-			User user = new User();
-			user.setId(1l);
-			user.setName("Jose");
-			user.setLastName("Sanchez");
-			user.setEmail("Jose@gmail.com");
-			user.setDni("12345678");
-			return user;
-		}
-		return null;
+		return userRepository.findByDniByPassword(usuario.getDni(), usuario.getPassword());
 	}
 
 	@PostMapping(value = "/api/registrar")
 	public User registrar(@RequestBody Usuario usuario) {
-		User user = new User();
-		user.setName(usuario.getNombre());
-		user.setLastName(usuario.getApellidos());
-		user.setEmail(usuario.getEmail());
-		user.setDni(usuario.getDni());
-		return userRepository.save(user);
+		return userRepository.save(User.from(usuario));
 	}
 
 }
