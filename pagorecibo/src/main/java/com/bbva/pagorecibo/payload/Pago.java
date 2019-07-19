@@ -5,6 +5,8 @@ public class Pago {
 	private Long idUsuario;
 	private Long idRecibo;
 	private String numeroTarjeta;
+	private String fechaVencimiento;
+	private String codigoSeguridad;
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -28,6 +30,22 @@ public class Pago {
 
 	public void setNumeroTarjeta(String numeroTarjeta) {
 		this.numeroTarjeta = numeroTarjeta;
+	}
+
+	public String getFechaVencimiento() {
+		return fechaVencimiento;
+	}
+
+	public void setFechaVencimiento(String fechaVencimiento) {
+		this.fechaVencimiento = fechaVencimiento;
+	}
+
+	public String getCodigoSeguridad() {
+		return codigoSeguridad;
+	}
+
+	public void setCodigoSeguridad(String codigoSeguridad) {
+		this.codigoSeguridad = codigoSeguridad;
 	}
 
 }
