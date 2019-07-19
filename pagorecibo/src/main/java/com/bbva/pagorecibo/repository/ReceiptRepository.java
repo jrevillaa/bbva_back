@@ -14,4 +14,7 @@ public interface ReceiptRepository extends JpaRepository<Receipt, Long> {
 	@Query("SELECT r FROM Receipt r WHERE r.estado.id = 1 and r.usuario.id = ?1 ")
 	public List<Receipt> findPendientesByIdUsuario(Long idUsuario);
 
+	
+//	public Receipt findByIdRecibo(Long idRecibo);
+
 }

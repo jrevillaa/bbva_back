@@ -35,6 +35,41 @@ public class Transaction {
 	@JoinColumn(name = "receipt_id")
 	private Receipt recibo;
 
+	public static class Builder {
+
+		private Card tarjeta;
+		private User user;
+		private Receipt recibo;
+		
+		public Builder withTarjeta(Long idTarjeta) {
+			tarjeta = new Card();
+			tarjeta.setId(idTarjeta);
+			return this;
+		}
+
+		public Builder withUser(Long idUsuario) {
+			user = new User();
+			user.setId(idUsuario);
+			return this;
+		}
+
+		public Builder withRecibo(Long idRecibo) {
+			recibo = new Receipt();
+			recibo.setId(idRecibo);
+			return this;
+		}
+		
+		public Transaction build() {
+			Transaction transaction = new Transaction();
+			transaction.setRecibo(recibo);
+			transaction.setTarjeta(tarjeta);
+			transaction.setUser(user);
+			transaction.setFecha(LocalDate.now());
+			return transaction;
+		}
+
+	}
+
 	public Long getId() {
 		return id;
 	}
