@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.bbva.pagorecibo.payload.Usuario;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Entity
@@ -80,6 +81,15 @@ public class User {
 
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+
+	public static User from(Usuario usuario) {
+		User user = new User();
+		user.setName(usuario.getNombre());
+		user.setLastName(usuario.getApellidos());
+		user.setEmail(usuario.getEmail());
+		user.setDni(usuario.getDni());
+		return user;
 	}
 
 }
